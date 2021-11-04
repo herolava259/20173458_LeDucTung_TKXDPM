@@ -1,0 +1,64 @@
+.cell{
+    -fx-border-style: solid;
+    -fx-border-color: aqua;
+}
+.pane1{
+    -fx-background-color:pink;
+    -fx-border-color:red; 
+
+}
+.label_key{
+    -fx-alignment: center;
+    -fx-font: Arial Rounded MT ;
+    -fx-font-weight: Bold;
+    -fx-font-size: 17px;
+}
+.label_value{
+    -fx-alignment: center;
+    -fx-font-family: Arial ;
+    -fx-font-size: 14px;
+}
+.grid_pane{
+    -fx-border-style: solid;
+    -fx-border-color:red; 
+
+}
+
+.label_title{
+    -fx-font-size: 40px;
+    -fx-alignment: center-left;
+    -fx-font-weight: Bold;
+    -fx-font-family: Arial ;
+    -fx-text-fill: rgb(0, 174, 255);
+}
+.slight_pane{
+    -fx-border-style: ridge;
+    -fx-border-color:beige;
+    -fx-border-width: 3px;
+    -fx-background-color:rgb(223, 220, 217);
+
+}
+.normal_blue_label{
+    -fx-text-fill: rgb(0, 174, 255);
+    -fx-font-size: 20px;
+}
+.button_delete{
+    -fx-border-color: aqua;
+    -fx-font-size: 20px;
+    -fx-boder-style: solid;
+    -fx-border-width: 2px;
+}
+
+.normal_bold_right{
+    -fx-alignment: bottom-right;
+    -fx-font-weight: Bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: rgb(0, 174, 255);
+    -fx-font-family: Arial ;
+}
+.normal_vnd_blue{
+    -fx-text-fill: rgb(0, 174, 255);
+    -fx-font-size: 20px;
+    -fx-alignment: center-right;
+    -fx-font-family: Arial ;
+}

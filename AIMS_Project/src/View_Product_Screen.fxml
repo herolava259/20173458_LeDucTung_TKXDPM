@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="676.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="1281.0" AnchorPane.topAnchor="20.0">
+         <image>
+            <Image url="@../../../Desktop/TKXDPM/Image/logo1-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="85.0" layoutY="9.0" prefHeight="89.0" prefWidth="586.0" styleClass="label_title" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/cell.css" text="RUSH ORDER PRODUCTS" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="695.0" AnchorPane.topAnchor="10.0" />
+      <AnchorPane layoutX="35.0" layoutY="120.0" prefHeight="650.0" prefWidth="1000.0" styleClass="slight_pane" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/cell.css" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <ImageView fitHeight="141.0" fitWidth="110.0" layoutX="14.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="-15.0">
+               <image>
+                  <Image url="@../../../Desktop/TKXDPM/Image/tim-alex-xG5VJW-7Bio-unsplash-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="141.0" layoutY="31.0" prefHeight="46.0" prefWidth="172.0" styleClass="normal_blue_label" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/cell.css" text="Book 3" />
+            <Button layoutX="141.0" layoutY="78.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" styleClass="button_delete" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/cell.css" text="Delete" />
+            <Label layoutX="775.0" layoutY="25.0" prefHeight="46.0" prefWidth="72.0" styleClass="normal_bold_right" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/cell.css" text="998 đ" AnchorPane.rightAnchor="116.0" />
+            <TextField layoutX="853.0" layoutY="48.0" prefHeight="31.0" prefWidth="110.0" promptText="1" text="2" AnchorPane.rightAnchor="0.0" />
+            <Label layoutX="790.0" layoutY="69.0" prefHeight="21.0" prefWidth="60.0" styleClass="normal_vnd_blue" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/cell.css" text="VND" AnchorPane.rightAnchor="113.0" />
+         </children>
+      </AnchorPane>
+      <FlowPane layoutX="1044.0" layoutY="139.0" prefHeight="650.0" prefWidth="300.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <Label prefHeight="40.0" prefWidth="90.0" styleClass="label_key" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/cell.css" text="Subtotal:">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="40.0" prefWidth="190.0" styleClass="cost_value" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/screen_cart_style.css" text="1975 đ" />
+            <Label prefHeight="40.0" prefWidth="90.0" styleClass="amount" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/screen_cart_style.css" text="Amount:" />
+            <Label prefHeight="40.0" prefWidth="140.0" styleClass="cost_value" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/screen_cart_style.css" text="2173 đ" />
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="50.0" styleClass="vat" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/screen_cart_style.css" text="VAT(10%)" />
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" styleClass="button_style" text="Next">
+               <stylesheets>
+                  <URL value="@../../../Desktop/TKXDPM/Style_sheet/screen_cart_style.css" />
+                  <URL value="@../../../Desktop/TKXDPM/Style_sheet/screen_cart_style.css" />
+               </stylesheets>
+               <FlowPane.margin>
+                  <Insets top="100.0" />
+               </FlowPane.margin>
+            </Button>
+         </children>
+      </FlowPane>
+   </children>
+</AnchorPane>

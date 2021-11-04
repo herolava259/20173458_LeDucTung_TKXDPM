@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="8.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
+         <image>
+            <Image url="@../../../Desktop/TKXDPM/Image/logo1-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="341.0" layoutY="74.0" prefHeight="76.0" prefWidth="188.0" styleClass="label_title" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/cell.css" text="Payment" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="10.0" />
+      <VBox layoutX="108.0" layoutY="231.0" prefHeight="237.0" prefWidth="188.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="110.0">
+         <children>
+            <Label text="Payment method">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Label>
+            <RadioButton mnemonicParsing="false" text="Credit Card">
+               <VBox.margin>
+                  <Insets left="25.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </VBox>
+      <VBox layoutX="606.0" layoutY="110.0" prefHeight="395.0" prefWidth="720.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="140.0">
+         <children>
+            <Label text="Card number:">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Label>
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Card holder name:">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Label>
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Expiration date:">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Label>
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Card security code:">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+      <Button layoutX="462.0" layoutY="636.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="300.0" style="-fx-background-radius: 20;" styleClass="button_style" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/screen_cart_style.css" text="Confirm Payment" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="462.0" />
+   </children>
+</AnchorPane>

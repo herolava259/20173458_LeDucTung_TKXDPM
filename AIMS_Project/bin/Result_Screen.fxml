@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
+         <image>
+            <Image url="@../../../Desktop/TKXDPM/Image/logo1-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="103.0" layoutY="14.0" prefHeight="76.0" prefWidth="188.0" styleClass="label_title" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/cell.css" text="Payment" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="10.0" />
+      <Label layoutX="377.0" layoutY="258.0" styleClass="payment" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/InvoiceScreen.css" text="PAYMENT RESULT" />
+      <Label layoutX="583.0" layoutY="421.0" text="Message">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="515.0" layoutY="638.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="241.0" style="-fx-background-radius: 20;" styleClass="button_style" stylesheets="@../../../Desktop/TKXDPM/Style_sheet/screen_cart_style.css" text="OK" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <children>
+      <ImageView fitHeight="160.0" fitWidth="182.0" layoutX="583.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Desktop/TKXDPM/Image/logo1-removebg-preview.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
