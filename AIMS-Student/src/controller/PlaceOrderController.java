@@ -15,6 +15,7 @@ import entity.invoice.Invoice;
 import entity.order.Order;
 import entity.order.OrderMedia;
 import views.screen.popup.PopupScreen;
+import controller.shippingFee.*;
 
 /**
  * This class controls the flow of place order usecase in our AIMS project
@@ -22,10 +23,24 @@ import views.screen.popup.PopupScreen;
  */
 public class PlaceOrderController extends BaseController{
 
+	
+	
+	
     /**
      * Just for logging purpose
      */
+	
     private static Logger LOGGER = utils.Utils.getLogger(PlaceOrderController.class.getName());
+    private ShippingFeeCaculator fee;
+    
+    
+    public PlaceOrderController() {
+    	fee = new NormalShippingFeeCaculator();
+    }
+    
+    public void setShippingFeeMethod(ShippingFeeCaculator feeMethod) {
+    	fee = feeMethod;
+    }
 
     /**
      * This method checks the avalibility of product when user click PlaceOrder button
@@ -34,7 +49,9 @@ public class PlaceOrderController extends BaseController{
     public void placeOrder() throws SQLException{
         Cart.getCart().checkAvailabilityOfProduct();
     }
-
+    
+    
+    
     /**
      * This method creates the new Order based on the Cart
      * @return Order
@@ -80,7 +97,9 @@ public class PlaceOrderController extends BaseController{
    * @throws IOException
    */
     public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException{
-    	
+    	if(!(validatePhoneNumber(info.get("phone number"))&&validateName(info.get("name"))&&validateAddress(info.get("address")))) {
+    		throw new InvalidDeliveryInfoException("Delivery Info is not valid!");
+    	}
     }
     
     public boolean validatePhoneNumber(String phoneNumber) {
@@ -144,6 +163,11 @@ public class PlaceOrderController extends BaseController{
     	
     }
     
+    
+//  private caculateWeight(Order order){
+//	float alter_weight = order;
+//}
+//
 
     /**
      * This method calculates the shipping fees of order
@@ -151,8 +175,9 @@ public class PlaceOrderController extends BaseController{
      * @return shippingFee
      */
     public int calculateShippingFee(Order order){
-        Random rand = new Random();
-        int fees = (int)( ( (rand.nextFloat()*10)/100 ) * order.getAmount() );
+    	
+    	int fees = fee.caculateShippingFee(order);
+    	
         LOGGER.info("Order Amount: " + order.getAmount() + " -- Shipping Fees: " + fees);
         return fees;
     }

@@ -134,8 +134,8 @@ public class DVD extends Media {
         }
     }
 
-    @Override
-    public List getAllMedia() {
-        return null;
-    }
+//    @Override
+//    public List getAllMedia() {
+//        return null;
+//    }
 }

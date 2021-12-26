@@ -122,7 +122,7 @@ public class API {
 	}
 	
 	/**
-	 * Phuong giup doc du lieu tra ve tu server
+	 * Phuong thuc giup doc du lieu tra ve tu server
 	 * @param conn: ket noi toi server
 	 * @return response: phan hoi tra ve tu server
 	 * @throws IOException
@@ -150,5 +150,6 @@ public class API {
 		LOGGER.info("Response Info" + response.substring(0, response.length() - 1).toString());
 		return response.substring(0, response.length() - 1).toString();
 	}
-
+	
+	
 }

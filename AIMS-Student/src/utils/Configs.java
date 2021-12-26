@@ -50,7 +50,7 @@ public class Configs {
 	public static final String HOME_PATH  = "/views/fxml/home.fxml";
 	public static final String HOME_MEDIA_PATH = "/views/fxml/media_home.fxml";
 	public static final String POPUP_PATH = "/views/fxml/popup.fxml";
-
+	
 	public static Font REGULAR_FONT = Font.font("Segoe UI", FontWeight.NORMAL, FontPosture.REGULAR, 24);
 
 	public static String[] PROVINCES = { "Bắc Giang", "Bắc Kạn", "Cao Bằng", "Hà Giang", "Lạng Sơn", "Phú Thọ",
@@ -61,4 +61,7 @@ public class Configs {
 			"Phú Yên", "Quảng Nam", "Quảng Ngãi", "Đà Nẵng", "Bà Rịa-Vũng Tàu", "Bình Dương", "Bình Phước", "Đồng Nai",
 			"Tây Ninh", "Hồ Chí Minh", "An Giang", "Bạc Liêu", "Bến Tre", "Cà Mau", "Đồng Tháp", "Hậu Giang",
 			"Kiên Giang", "Long An", "Sóc Trăng", "Tiền Giang", "Trà Vinh", "Vĩnh Long", "Cần Thơ" };
+	public static final int COEFF_WEIGHT = 6000;
+	public static final int FEE_PER_WEIGHT = 100;
+	
 }

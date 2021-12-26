@@ -27,6 +27,10 @@ public class Media {
     protected int quantity;
     protected String type;
     protected String imageURL;
+    protected int weight;
+    protected int width;
+    protected int height;
+    protected int length;
 
     public Media() throws SQLException{
         stm = AIMSDB.getConnection().createStatement();
@@ -62,7 +66,11 @@ public class Media {
                 .setCategory(res.getString("category"))
                 .setMediaURL(res.getString("imageUrl"))
                 .setPrice(res.getInt("price"))
-                .setType(res.getString("type"));
+                .setType(res.getString("type"))
+                .setWeight(res.getInt("weight"))
+                .setHeight(res.getInt("height"))
+                .setWidth(res.getInt("width"))
+                .setLength(res.getInt("length"));
         }
         return null;
     }
@@ -79,7 +87,11 @@ public class Media {
                 .setCategory(res.getString("category"))
                 .setMediaURL(res.getString("imageUrl"))
                 .setPrice(res.getInt("price"))
-                .setType(res.getString("type"));
+                .setType(res.getString("type"))
+                .setWeight(res.getInt("weight"))
+                .setHeight(res.getInt("height"))
+                .setWidth(res.getInt("width"))
+                .setLength(res.getInt("length"));
             medium.add(media);
         }
         return medium;
@@ -167,5 +179,41 @@ public class Media {
             ", imageURL='" + imageURL + "'" +
             "}";
     }    
-
+    
+    public int getWeight() {
+    	return this.weight;
+    }
+    
+    public Media setWeight(int w) {
+    	this.weight = w;
+    	return this;
+    }
+    
+    public int getHeight() {
+    	return this.height;
+    }
+    
+    public Media setHeight(int h) {
+    	this.height = h;
+    	return this;
+    }
+    
+    public int getWidth() {
+    	return this.width;
+    }
+    
+    public Media setWidth(int w) {
+    	this.width = w;
+    	return this;
+    }
+    
+    public int getLength() {
+    	return this.length;
+    }
+    
+    public Media setLength(int l) {
+    	this.length = l;
+    	return this;
+    }
+    
 }
