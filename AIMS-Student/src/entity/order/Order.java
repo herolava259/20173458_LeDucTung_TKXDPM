@@ -60,24 +60,5 @@ public class Order {
         }
         return (int) (amount + (Configs.PERCENT_VAT/100)*amount);
     }
-    
-    public int getTotalVolume() {
-    	
-    	int vol = 0;
-    	for(Object obj: lstOrderMedia) {
-    		OrderMedia om = (OrderMedia) obj;
-    		vol += om.getVolumeMedia();
-    	}
-    	return vol;
-    }
-    
-    public int getTotalWeight() {
-    	int weight = 0;
-    	for(Object obj: lstOrderMedia) {
-    		OrderMedia om = (OrderMedia) obj;
-    		weight += om.getWeightMedia();
-    	}
-    	return weight;
-    }
 
 }

@@ -1,21 +1,15 @@
 package controller;
 
 import java.io.IOException;
-import java.util.regex.*;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
 import java.util.logging.Logger;
 
 import entity.cart.Cart;
 import entity.cart.CartMedia;
-import common.exception.InvalidDeliveryInfoException;
 import entity.invoice.Invoice;
 import entity.order.Order;
 import entity.order.OrderMedia;
-import views.screen.popup.PopupScreen;
-import controller.shippingFee.*;
 
 /**
  * This class controls the flow of place order usecase in our AIMS project
@@ -23,35 +17,35 @@ import controller.shippingFee.*;
  */
 public class PlaceOrderController extends BaseController{
 
-	
-	
-	
     /**
-     * Just for logging purpose
+     * For reduce hard code
      */
-	
-    private static Logger LOGGER = utils.Utils.getLogger(PlaceOrderController.class.getName());
-    private ShippingFeeCaculator fee;
-    
-    
+    public static final String ADDRESS = "address";
+    public static final String PHONE_NUMBER = "phone";
+    public static final String NAME = "name";
+
+    private ShippingFeeCalculator calculateShippingFee;
+
     public PlaceOrderController() {
-    	fee = new NormalShippingFeeCaculator();
     }
-    
-    public void setShippingFeeMethod(ShippingFeeCaculator feeMethod) {
-    	fee = feeMethod;
+
+    public PlaceOrderController(ShippingFeeCalculator calculateShippingFee) {
+        this.calculateShippingFee = calculateShippingFee;
     }
 
     /**
-     * This method checks the avalibility of product when user click PlaceOrder button
+     * Just for logging purpose
+     */
+    private static Logger LOGGER = utils.Utils.getLogger(PlaceOrderController.class.getName());
+
+    /**
+     * This method checks the availability of product when user click PlaceOrder button
      * @throws SQLException
      */
     public void placeOrder() throws SQLException{
         Cart.getCart().checkAvailabilityOfProduct();
     }
-    
-    
-    
+
     /**
      * This method creates the new Order based on the Cart
      * @return Order
@@ -96,78 +90,78 @@ public class PlaceOrderController extends BaseController{
    * @throws InterruptedException
    * @throws IOException
    */
-    public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException{
-    	if(!(validatePhoneNumber(info.get("phone number"))&&validateName(info.get("name"))&&validateAddress(info.get("address")))) {
-    		throw new InvalidDeliveryInfoException("Delivery Info is not valid!");
-    	}
+    public boolean validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException{
+        String address = info.get(ADDRESS);
+        String name = info.get(NAME);
+        String phoneNumber = info.get(PHONE_NUMBER);
+        return validateAddress(address) && validateName(name) && validatePhoneNumber(phoneNumber);
     }
-    
+
+    /**
+     * The method validates the phone number of user
+     * @param phoneNumber
+     */
     public boolean validatePhoneNumber(String phoneNumber) {
-    	// TODO: your work
-    	
-    	// check the phone Number has 10 digits
-    	if(phoneNumber.length() != 10) return false;
-    	
-    	// check the phone Number starts with 0
-    	if(!phoneNumber.startsWith("0")) return false;
-    	
-    	try {
-    		Integer.parseInt(phoneNumber);
-    	}catch (NumberFormatException e) {
-    		return false;
-    	}
-    	return true;
-    	
+        // HungND-20183548
+        if (phoneNumber == null || phoneNumber.isEmpty() || phoneNumber.charAt(0) != '0' || phoneNumber.length() != 10) {
+            return false;
+        }
+
+        boolean isValid = true;
+        for (char ch : phoneNumber.toCharArray()) {
+            if ( !Character.isDigit(ch) ) {
+                isValid = false;
+                break;
+            }
+        }
+
+        return isValid;
     }
-    
+
+    /**
+     * The method validates name of user
+     * @param name User's name
+     */
     public boolean validateName(String name) {
-    	// TODO: your work
-    	String regex = "^[a-zA-Z][ ]*$";
-    	
-    	Pattern p = Pattern.compile(regex);
-    	
-    	if (name == null) {
+        // HungND-20183548
+        if (name == null || name.isEmpty()) {
             return false;
         }
-  
-        // Pattern class contains matcher() method
-        // to find matching between given username
-        // and regular expression.
-        Matcher m = p.matcher(name);
-  
-        // Return if the username
-        // matched the ReGex
-        return m.matches();
-    	
+
+        boolean isValid = true;
+        for (char ch : name.toCharArray()) {
+            if ( !Character.isLetter(ch) ) {
+                isValid = false;
+            }
+        }
+
+        return isValid;
     }
-    
+
+    /**
+     * The method validates user's address
+     * @param address
+     */
     public boolean validateAddress(String address) {
-    	// TODO: your work
-    	
-        String regex = "#.0-9a-zA-Z\\s,-";
-    	
-    	Pattern p = Pattern.compile(regex);
-    	
-    	if (address == null) {
+        // HungND-20183548
+        if (address == null || address.isEmpty()) {
             return false;
         }
-  
-        // Pattern class contains matcher() method
-        // to find matching between given username
-        // and regular expression.
-        Matcher m = p.matcher(address);
-  
-        // Return if the username
-        // matched the ReGex
-        return m.matches();
-    	
+
+        boolean isValid = true;
+        for (char ch : address.toCharArray()) {
+            if ( ch == ' ' ) {
+                continue;
+            }
+            if ( !Character.isLetter(ch) ) {
+                isValid = false;
+                break;
+            }
+        }
+
+        return isValid;
     }
     
-    
-//  private caculateWeight(Order order){
-//	float alter_weight = order;
-//}
-//
 
     /**
      * This method calculates the shipping fees of order
@@ -175,10 +169,6 @@ public class PlaceOrderController extends BaseController{
      * @return shippingFee
      */
     public int calculateShippingFee(Order order){
-    	
-    	int fees = fee.caculateShippingFee(order);
-    	
-        LOGGER.info("Order Amount: " + order.getAmount() + " -- Shipping Fees: " + fees);
-        return fees;
+        return calculateShippingFee.calculateShippingFee(order);
     }
 }

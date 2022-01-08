@@ -46,26 +46,5 @@ public class OrderMedia {
     public void setPrice(int price) {
         this.price = price;
     }
-    
-    public int getWeightMedia() {
-    	return media.getWeight();
-    }
-    
-    
-    public int getHeightMedia() {
-    	return media.getHeight();
-    }
-    
-    public int getWidthMedia() {
-    	return media.getWidth();
-    }
-    
-    public int getLengthMedia() {
-    	return media.getLength();
-    }
-    
-    public int getVolumeMedia() {
-    	return media.getHeight()*media.getWidth()*media.getLength();
-    }
 
 }

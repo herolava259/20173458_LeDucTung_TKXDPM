@@ -1,14 +1,52 @@
 package entity.payment;
 
 public class DomesticDebitCard extends PaymentCard {
-	
-	private String validDate ;
-	private String issuingBank;
-	public DomesticDebitCard(String cardcode, String owner, String validDate, String bank) {
-		// TODO Auto-generated constructor stub
-		super(cardcode, owner);
-		this.validDate = validDate;
-		this.issuingBank = bank;
-	}
 
+    private String issueBank;
+    private String cardNumber;
+    private String fromDate;
+    private String cardHolderName;
+
+    public DomesticDebitCard(String issueBank, String cardNumber, String fromDate, String cardHolderName) {
+        super();
+        this.issueBank = issueBank;
+        this.cardNumber = cardNumber;
+        this.fromDate = fromDate;
+        this.cardHolderName = cardHolderName;
+    }
+
+    public DomesticDebitCard() {
+    }
+
+    public String getIssueBank() {
+        return issueBank;
+    }
+
+    public void setIssueBank(String issueBank) {
+        this.issueBank = issueBank;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(String fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public String getCardHolderName() {
+        return cardHolderName;
+    }
+
+    public void setCardHolderName(String cardHolderName) {
+        this.cardHolderName = cardHolderName;
+    }
 }
